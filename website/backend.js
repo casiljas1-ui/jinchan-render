@@ -2009,14 +2009,15 @@
   }
 
   async function generateCopy() {
-    const button = document.querySelector('#workshop .primary');
+    const button = document.getElementById('ai-generate-copy-button');
+    if (!button) return notice('未找到 AI 生成话术按钮，请刷新页面后重试');
     const result = ensureWorkshopResult();
-    button.parentElement?.insertBefore(result, button);
+    const copyStage = document.getElementById('call-copy-stage') || button.parentElement;
+    copyStage?.insertBefore(result, button);
     const original = button.innerHTML;
     let generated = false;
     let planSaved = false;
     button.disabled = true;
-    options.player?.closest('.phone-generator')?.querySelector('.generator-result-actions')?.setAttribute('hidden', '');
     button.classList.add('is-generating');
     button.innerHTML = '<span class="generate-spark">✦</span><span>正在生成…</span>';
     result.className = 'card visible';

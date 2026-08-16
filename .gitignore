@@ -1,0 +1,35 @@
+# ---- OS / IDE ----
+.DS_Store
+Thumbs.db
+.idea/
+*.iml
+.vscode/
+
+# ---- Python（backend） ----
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.env
+*.db
+*.sqlite3
+
+# 运行时生成的语音文件与数据
+backend/data/
+
+# ---- Flutter（app/ 与 app/android/ 已有各自 .gitignore，这里兜底） ----
+app/build/
+app/.dart_tool/
+app/android/.gradle/
+app/android/local.properties
+
+# ---- Android 执行端构建产物 ----
+android-executor/**/build/
+android-executor/**/.gradle/
+android-executor/local.properties
+
+# ---- 构建产物 APK（不纳入 git，走 GitHub Releases / 直接传文件） ----
+*.apk
+
+# ---- 本地 Claude 配置 ----
+.claude/

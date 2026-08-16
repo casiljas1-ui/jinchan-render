@@ -1,0 +1,14 @@
+.git
+.gitignore
+**/__pycache__
+**/*.py[cod]
+**/.pytest_cache
+**/.venv*
+backend/.env
+backend/database
+backend/data
+backend/storage
+*.db
+*.sqlite3
+*.zip
+*.apk

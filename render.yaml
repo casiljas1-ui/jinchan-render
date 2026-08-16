@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: jinchan-web
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: AI_PROVIDER
+        value: deepseek
+      - key: DEEPSEEK_API_KEY
+        sync: false
+      - key: MINIMAX_API_KEY
+        sync: false
+      - key: MINIMAX_GROUP_ID
+        sync: false
+      - key: MINIMAX_TTS_MODEL
+        value: speech-2.8-hd
+      - key: MINIMAX_TEXT_MODEL
+        value: MiniMax-M2.7
+      - key: DATABASE_URL
+        value: sqlite:///./database/jinchan.db
+      - key: VOICE_DIR
+        value: ./storage/audio/calls/generated
+      - key: RECORDING_DIR
+        value: ./storage/audio/voices/originals
+      - key: CLONED_VOICE_DIR
+        value: ./storage/audio/voices/cloned
